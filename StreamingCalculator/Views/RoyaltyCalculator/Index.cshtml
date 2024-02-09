@@ -44,9 +44,26 @@
         </div>
 
         <div>
-            <input type="submit" value="Calculate" />
+            <input type="submit" value="Calculate Royalty" />
         </div>
     </form>
+
+    <form asp-action="Index" method="post">
+        <div>
+            <label for="desiredRoyalty">Desired Spotify Royalty:</label>
+            <input type="number" id="desiredRoyalty" name="DesiredRoyalty" value="@Model?.DesiredRoyalty" step="0.01" required />
+        </div>
+
+        <div>
+            <input type="submit" value="Calculate Streams" />
+        </div>
+    </form>
+
+    @if (Model?.DesiredRoyalty > 0)
+    {
+        <p>Streams Needed for Desired Royalty: @Model.StreamsForDesiredRoyalty</p>
+        <p><em>Note: The calculated streams are an estimate based on average rates and may vary.</em></p>
+    }
 
     @if (Model?.NumberOfStreams > 0)
     {

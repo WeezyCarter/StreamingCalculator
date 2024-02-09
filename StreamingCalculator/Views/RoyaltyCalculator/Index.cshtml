@@ -1,0 +1,56 @@
+﻿@model StreamingCalculator.Models.RoyaltyCalculatorModel
+
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1982px-Spotify_icon.svg.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 30%; /* Adjust as needed */
+        opacity: 1.0; /* Adjust for visibility of text */
+    }
+
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    input, label {
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+        input[type="submit"] {
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            color: black;
+        }
+</style>
+
+<div class="container">
+    <h2>Spotify Royalty Calculator</h2>
+
+    <form asp-action="Index" method="post">
+        <div>
+            <label for="numberOfStreams">Number of Spotify Streams:</label>
+            <input type="number" id="numberOfStreams" name="NumberOfStreams" value="@Model?.NumberOfStreams" required />
+        </div>
+
+        <div>
+            <input type="submit" value="Calculate" />
+        </div>
+    </form>
+
+    @if (Model?.NumberOfStreams > 0)
+    {
+        <p>Total Spotify Royalty: @Model.TotalRoyalty.ToString("C")</p>
+        <p><em>Note: The calculated royalty is an estimate based on average rates and may vary.</em></p>
+    }
+</div>

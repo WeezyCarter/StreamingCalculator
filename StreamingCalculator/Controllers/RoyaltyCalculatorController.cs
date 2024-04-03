@@ -8,13 +8,13 @@ namespace StreamingCalculator.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = new RoyaltyCalculatorModel(); // Replace with your actual model class name
+            var model = new RoyaltyCalculatorModel(); 
             return View(model);
         }
 
 
         [HttpPost]
-        public IActionResult Index(RoyaltyCalculatorModel model) // Replace with your actual model class name
+        public IActionResult Index(RoyaltyCalculatorModel model) 
         {
             if (!ModelState.IsValid)
             {
